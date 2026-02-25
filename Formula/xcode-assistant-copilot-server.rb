@@ -1,8 +1,8 @@
 class XcodeAssistantCopilotServer < Formula
   desc "Local server bridging GitHub Copilot with Xcode Code Intelligence"
   homepage "https://github.com/mobile-ar/xcode-assistant-copilot-server"
-  url "https://github.com/mobile-ar/xcode-assistant-copilot-server/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "30bd66ff60acb957ff69bc72bd892fea4436b2ab20789b43fe4e77137f3f6866"
+  url "https://github.com/mobile-ar/xcode-assistant-copilot-server/archive/refs/tags/v1.1.1.tar.gz"
+  sha256 "1c3322c81c4bdfae10a4db31ede2dd803615b879df045afba904330cfd6300f1"
   license "MIT"
   head "https://github.com/mobile-ar/xcode-assistant-copilot-server.git", branch: "main"
 
