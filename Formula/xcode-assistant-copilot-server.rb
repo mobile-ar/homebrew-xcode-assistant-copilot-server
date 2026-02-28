@@ -1,8 +1,8 @@
 class XcodeAssistantCopilotServer < Formula
   desc "Local server bridging GitHub Copilot with Xcode Code Intelligence"
   homepage "https://github.com/mobile-ar/xcode-assistant-copilot-server"
-  url "https://github.com/mobile-ar/xcode-assistant-copilot-server/archive/refs/tags/v1.1.2.tar.gz"
-  sha256 "d017375e8e9b0e99f4d120f67ba05e5d905b672a1d0c1983a77d48859451801d"
+  url "https://github.com/mobile-ar/xcode-assistant-copilot-server/archive/refs/tags/v1.1.3.tar.gz"
+  sha256 "2784799ac39553ab41f8302e49a13fa643db8bdfe0c17d91edbacbb0db072824"
   license "MIT"
   head "https://github.com/mobile-ar/xcode-assistant-copilot-server.git", branch: "main"
 
@@ -14,6 +14,9 @@ class XcodeAssistantCopilotServer < Formula
   depends_on macos: :tahoe
 
   def install
+    (buildpath/"Sources/xcode-assistant-copilot-server/Version.generated.swift").write(
+      "let appVersion = \"#{version}\"\n",
+    )
     system "swift", "build",
            "--disable-sandbox",
            "-c", "release",
