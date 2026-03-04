@@ -1,8 +1,8 @@
 class XcodeAssistantCopilotServer < Formula
   desc "Local server bridging GitHub Copilot with Xcode Code Intelligence"
   homepage "https://github.com/mobile-ar/xcode-assistant-copilot-server"
-  url "https://github.com/mobile-ar/xcode-assistant-copilot-server/archive/refs/tags/v1.1.3.tar.gz"
-  sha256 "104568773d6ee94ce99ebad632ffbcd2056848b1409f302ed27ad7fca40dfdd0"
+  url "https://github.com/mobile-ar/xcode-assistant-copilot-server/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "0ed358c32249dfbf790e560b41362ede1f8f9826e4172ee1b74b322cbd763dd3"
   license "MIT"
   head "https://github.com/mobile-ar/xcode-assistant-copilot-server.git", branch: "main"
 
@@ -22,7 +22,6 @@ class XcodeAssistantCopilotServer < Formula
            "-c", "release",
            "--scratch-path", buildpath/".build"
     bin.install ".build/release/xcode-assistant-copilot-server"
-    pkgetc.install "config.json" => "config.json.default"
   end
 
   service do
@@ -43,14 +42,15 @@ class XcodeAssistantCopilotServer < Formula
 
       The server listens on http://127.0.0.1:8080 by default.
 
+      On first run, a default configuration file is created at:
+        ~/.config/xcode-assistant-copilot-server/config.json
+
+      Edit this file to customize MCP servers, permissions, and other
+      settings. To use a config file from a different path:
+        xcode-assistant-copilot-server --config /path/to/config.json
+
       To use a custom port:
         xcode-assistant-copilot-server --port 9090
-
-      To use a configuration file:
-        xcode-assistant-copilot-server --config #{pkgetc}/config.json
-
-      A default configuration file has been installed to:
-        #{pkgetc}/config.json.default
 
       To connect Xcode:
         1. Open Xcode → Settings → Intelligence
